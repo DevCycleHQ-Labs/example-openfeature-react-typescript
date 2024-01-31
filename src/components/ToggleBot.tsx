@@ -1,17 +1,17 @@
-import { useDevCycleClient, useVariableValue } from '@devcycle/react-client-sdk';
-import classNames from 'classnames';
+import { useStringFlagValue, useBooleanFlagValue } from '@openfeature/react-sdk'
+import classNames from 'classnames'
 
 function ToggleBot() {
   /**
    * The useVariableValue hook will return the current value of a variable.
    * If no value is defined for the current user, the default value will be returned.
    */
-  const devcycleClient = useDevCycleClient()
-  const shouldWink = useVariableValue('togglebot-wink', false)
-  const spinSpeed = useVariableValue('togglebot-speed', 'off')
+  const shouldWink = useBooleanFlagValue('togglebot-wink', false)
+  const spinSpeed = useStringFlagValue('togglebot-speed', 'off')
 
-  const features = devcycleClient.allFeatures()
-  const { variationName = 'Default' } = features['hello-togglebot'] ?? {}
+  // TODO: how to get devcycleClient from devcycleProvider.devcycleClient in App.tsx
+  // const features = devcycleClient.allFeatures()
+  const { variationName = 'Default' } = {} // features['hello-togglebot'] ?? {}
 
   return (
     <div className="App-content">

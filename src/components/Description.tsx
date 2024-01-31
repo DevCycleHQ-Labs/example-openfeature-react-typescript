@@ -1,7 +1,7 @@
-import { useVariableValue } from '@devcycle/react-client-sdk';
+import { useStringFlagValue } from "@openfeature/react-sdk"
 
 function Description() {
-  const step = useVariableValue('example-text', 'default')
+  const step = useStringFlagValue('example-text', 'default')
 
   return (
     <div className="App-description" data-testid="app-description">
