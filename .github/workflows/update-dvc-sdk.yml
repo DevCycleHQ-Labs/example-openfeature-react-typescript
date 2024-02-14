@@ -27,7 +27,7 @@ jobs:
         run: echo "BRANCH_NAME=update-dvc-sdk" >> $GITHUB_ENV
 
       - name: Update @devcycle/react-client-sdk to latest
-        run: npm install @devcycle/react-client-sdk@latest
+        run: npm install @devcycle/openfeature-web-provider@latest @openfeature/react-sdk@latest
 
       - name: Check for changes to package.json
         run: echo "IS_UPDATED=$(git diff --name-only origin/main package.json)" >> $GITHUB_ENV
