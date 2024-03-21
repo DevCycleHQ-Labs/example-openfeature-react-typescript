@@ -47,7 +47,7 @@ const getMessage = (spinSpeed: string) => {
 
 const getImageSource = (spinSpeed: string, shouldWink: boolean) => {
   if (spinSpeed === 'surprise') return 'unicorn.svg'
-  return shouldWink ? 'togglebot-wink.png' : 'togglebot.png'
+  return shouldWink ? 'togglebot-wink.svg' : 'togglebot.svg'
 }
 
 export default ToggleBot;
