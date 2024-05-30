@@ -26,7 +26,7 @@ function App() {
     OpenFeature.setProvider(devCycleProvider)
 
     return (
-      <OpenFeatureProvider clientName={"DevCycle"}>
+      <OpenFeatureProvider>
           <div className="App">
               <div className="App-header">
                   <p>Demo Application</p>
