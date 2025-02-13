@@ -1,6 +1,6 @@
 import './App.css'
 import { OpenFeatureProvider, OpenFeature } from '@openfeature/react-sdk'
-import DevCycleProvider from '@devcycle/openfeature-web-provider'
+import DevCycleReactProvider from '@devcycle/openfeature-react-provider'
 import { Suspense } from 'react'
 import ToggleBot from './components/ToggleBot'
 import Description from './components/Description'
@@ -10,12 +10,12 @@ if (!process.env.REACT_APP_DEVCYCLE_CLIENT_SDK_KEY) {
 }
 
 const DEVCYCLE_CLIENT_SDK_KEY = process.env.REACT_APP_DEVCYCLE_CLIENT_SDK_KEY || ''
-let devCycleProvider: DevCycleProvider
+let devCycleProvider: DevCycleReactProvider
 
 function App() {
     const Fallback = () => (<h2>Initializing...</h2>)
 
-    devCycleProvider = new DevCycleProvider(DEVCYCLE_CLIENT_SDK_KEY, {
+    devCycleProvider = new DevCycleReactProvider(DEVCYCLE_CLIENT_SDK_KEY, {
         logLevel: 'debug'
     })
     OpenFeature.setContext({
