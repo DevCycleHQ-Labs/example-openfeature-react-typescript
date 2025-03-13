@@ -16,7 +16,9 @@ function App() {
     const Fallback = () => (<h2>Initializing...</h2>)
 
     devCycleProvider = new DevCycleReactProvider(DEVCYCLE_CLIENT_SDK_KEY, {
-        logLevel: 'debug'
+        logLevel: 'debug',
+        // Controls the interval between flushing events to the DevCycle servers
+        eventFlushIntervalMS: 1000,
     })
     OpenFeature.setContext({
         user_id: 'user123',
