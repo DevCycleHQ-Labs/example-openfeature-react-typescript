@@ -3,21 +3,21 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@devcycle/openfeature-react-provider": "^1.0.1",
+    "@devcycle/openfeature-react-provider": "^1.12.7",
     "@openfeature/react-sdk": "^0.4.11",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.2.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.1",
     "@testing-library/user-event": "^14.6.1",
     "classnames": "^2.5.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "react-scripts": "5.0.1"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/jest": "^29.5.14",
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
     "react-app-rewired": "^2.2.1"
   },
   "scripts": {
