@@ -1,4 +1,5 @@
-import { useStringFlagValue, useBooleanFlagValue } from '@openfeature/react-sdk'
+import { useStringFlagValue, useBooleanFlagValue, OpenFeature } from '@openfeature/react-sdk'
+import DevCycleReactProvider from '@devcycle/openfeature-react-provider'
 import classNames from 'classnames'
 
 function ToggleBot() {
@@ -9,9 +10,8 @@ function ToggleBot() {
   const shouldWink = useBooleanFlagValue('togglebot-wink', false)
   const spinSpeed = useStringFlagValue('togglebot-speed', 'off')
 
-  // TODO: how to get devcycleClient from devcycleProvider.devcycleClient in App.tsx
-  // const features = devcycleClient.allFeatures()
-  const { variationName = 'Default' } = {} // features['hello-togglebot'] ?? {}
+  const devcycleClient = (OpenFeature.getProvider() as DevCycleReactProvider).devcycleClient
+  const { variationName = 'Default' } = devcycleClient?.allFeatures()?.['hello-togglebot'] ?? {}
 
   return (
     <div className="App-content">
