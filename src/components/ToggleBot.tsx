@@ -11,7 +11,7 @@ function ToggleBot() {
   const spinSpeed = useStringFlagValue('togglebot-speed', 'off')
 
   const devcycleClient = (OpenFeature.getProvider() as DevCycleReactProvider).devcycleClient
-  const { variationName = 'Default' } = devcycleClient?.allFeatures()['hello-togglebot'] ?? {}
+  const { variationName = 'Default' } = devcycleClient?.allFeatures()?.['hello-togglebot'] ?? {}
 
   return (
     <div className="App-content">
