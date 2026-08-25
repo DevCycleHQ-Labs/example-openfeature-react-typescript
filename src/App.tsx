@@ -10,23 +10,21 @@ if (!process.env.REACT_APP_DEVCYCLE_CLIENT_SDK_KEY) {
 }
 
 const DEVCYCLE_CLIENT_SDK_KEY = process.env.REACT_APP_DEVCYCLE_CLIENT_SDK_KEY || ''
-let devCycleProvider: DevCycleReactProvider
+
+const devCycleProvider = new DevCycleReactProvider(DEVCYCLE_CLIENT_SDK_KEY, {
+    logLevel: 'debug',
+    // Controls the interval between flushing events to the DevCycle servers
+    eventFlushIntervalMS: 1000,
+})
+OpenFeature.setContext({
+    user_id: 'user123',
+    name: 'Jane Doe',
+    email: 'jane.doe@email.com'
+})
+OpenFeature.setProvider(devCycleProvider)
 
 function App() {
     const Fallback = () => (<h2>Initializing...</h2>)
-
-    devCycleProvider = new DevCycleReactProvider(DEVCYCLE_CLIENT_SDK_KEY, {
-        logLevel: 'debug',
-        // Controls the interval between flushing events to the DevCycle servers
-        eventFlushIntervalMS: 1000,
-    })
-    OpenFeature.setContext({
-        user_id: 'user123',
-        name: 'Jane Doe',
-        email: 'jane.doe@email.com'
-    })
-    OpenFeature.setProvider(devCycleProvider)
-
     return (
       <OpenFeatureProvider>
           <div className="App">
